@@ -23,7 +23,7 @@ const postAction = (req, res) => {
 app.post('/', postAction);
 app.get('/', (req, res) => {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end(`Node update / ${process.version}`);
+    res.end(`Node update! / ${process.version}`);
 });
 app.listen(PORT);
 console.log(`Server running at ${PORT}`);
