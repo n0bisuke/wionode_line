@@ -40,6 +40,12 @@ const action = async (WEO) => {
             //     reply(WEO.replyToken,SendMessageObject).then();
             // });
 
+        }else if(user[WEO.source.userId] && WEO.message.text === 'ヘルプ'){
+            console.log(`ヘルプコマンド`);
+            mes = `Android版 https://speakerdeck.com/n0bisuke/wionodefalsesetutoatupu-androidban`;
+        }else if(user[WEO.source.userId] && WEO.message.text === 'アンケート'){
+            console.log(`アンケートコマンド`);
+            mes = `今日のアンケート https://goo.gl/forms/2VL3Z1UwZzEYvPl62`;
         }else if(user[WEO.source.userId] && WEO.message.text === '湿度'){
             console.log(`湿度コマンド`);
             const res = await wio.getWioHumidity(user[WEO.source.userId])
@@ -54,12 +60,10 @@ const action = async (WEO) => {
             console.log(`人感コマンド`);
             let res;
             const LOOPCOUNT = 5;
-            
             for (let i = 0; i < LOOPCOUNT; i++) {
                 res = await wio.getWioPIR(user[WEO.source.userId], 'D1');
                 if(res.data.approach === 1) break;
             }
-
             console.log(res.data);
             mes = `人感センサに反応あり。`;
             if(res.data.approach === 0) mes = `人感センサに反応なし。`; 
