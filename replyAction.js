@@ -1,42 +1,8 @@
 'use strict';
 
-const axios = require('axios');
 const reply = require('./api/line').reply;
-
+const wio = require('./api/wio/');
 let user = {};
-
-const getWioHumidity = (token) => {
-    const BASE_URL = 'https://us.wio.seeed.io';
-    const API_PATH = `/v1/node/GroveTempHumD0/humidity?access_token=${token}`;
-
-    return axios.request({
-        method: 'get',
-        baseURL: BASE_URL,
-        url: API_PATH,
-    });
-}
-
-const getWioTemperature = (token) => {
-    const BASE_URL = 'https://us.wio.seeed.io';
-    const API_PATH = `/v1/node/GroveTempHumD1/temperature?access_token=${token}`;
-
-    return axios.request({
-        method: 'get',
-        baseURL: BASE_URL,
-        url: API_PATH,
-    });
-}
-
-const getWioPIR = (token) => {
-    const BASE_URL = 'https://us.wio.seeed.io';
-    const API_PATH = `/v1/node/GrovePIRMotionD1/approach?access_token=${token}`;
-
-    return axios.request({
-        method: 'get',
-        baseURL: BASE_URL,
-        url: API_PATH,
-    });
-}
 
 const action = async (WEO) => {
     //WEO -> WebhookEventObject
@@ -71,17 +37,17 @@ const action = async (WEO) => {
 
         }else if(user[WEO.source.userId] && WEO.message.text === '湿度'){
             console.log(`湿度コマンド`);
-            const res = await getWioHumidity(user[WEO.source.userId])
+            const res = await wio.getWioHumidity(user[WEO.source.userId])
             console.log(res.data);
             mes = `湿度は${res.data.humidity}です。`;
         }else if(user[WEO.source.userId] && WEO.message.text === '温度'){
             console.log(`温度コマンド`);
-            const res = await getWioTemperature(user[WEO.source.userId])
+            const res = await wio.getWioTemperature(user[WEO.source.userId])
             console.log(res.data);
             mes = `温度は${res.data.celsius_degree}です。`;
         }else if(user[WEO.source.userId] && WEO.message.text === '人感'){
             console.log(`人感コマンド`);
-            const res = await getWioPIR(user[WEO.source.userId])
+            const res = await wio.getWioPIR(user[WEO.source.userId])
             console.log(res.data);
             mes = `人感センサに反応あり。`;
             if(res.data.approach) mes = `人感センサに反応なし。`; 
