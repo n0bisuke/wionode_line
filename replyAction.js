@@ -40,10 +40,10 @@ const action = async (WEO) => {
             //     reply(WEO.replyToken,SendMessageObject).then();
             // });
 
-        }else if(user[WEO.source.userId] && WEO.message.text === 'ヘルプ'){
+        }else if(WEO.message.text === 'ヘルプ'){
             console.log(`ヘルプコマンド`);
             mes = `Android版 https://speakerdeck.com/n0bisuke/wionodefalsesetutoatupu-androidban`;
-        }else if(user[WEO.source.userId] && WEO.message.text === 'アンケート'){
+        }else if(WEO.message.text === 'アンケート'){
             console.log(`アンケートコマンド`);
             mes = `今日のアンケート https://goo.gl/forms/2VL3Z1UwZzEYvPl62`;
         }else if(user[WEO.source.userId] && WEO.message.text === '湿度'){
