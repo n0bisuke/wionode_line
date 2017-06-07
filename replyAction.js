@@ -48,7 +48,7 @@ const action = async (WEO) => {
             mes = `iPhone版 ${ios} \n\n Android版 ${android} \n\n 応用 ${ouyou}`;
         }else if(WEO.message.text === 'アンケート'){
             console.log(`アンケートコマンド`);
-            mes = `今日のアンケート https://goo.gl/forms/2VL3Z1UwZzEYvPl62`;
+            mes = `アンケートはこちらです！お答えください！ \n https://goo.gl/forms/2VL3Z1UwZzEYvPl62`;
         }else if(user[WEO.source.userId] && WEO.message.text === '湿度'){
             console.log(`湿度コマンド`);
             const res = await wio.getWioHumidity(user[WEO.source.userId])
