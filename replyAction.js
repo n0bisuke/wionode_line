@@ -45,7 +45,7 @@ const action = async (WEO) => {
             const ios = 'https://speakerdeck.com/n0bisuke/wionodefalsesetutoatupu-iphoneban'; 
             const android = 'https://speakerdeck.com/n0bisuke/wionodefalsesetutoatupu-androidban';
             const ouyou = 'https://i.gyazo.com/a83ceedfd879c337e84314d27fb091a3.png';
-            mes = `iPhone版 ${ios} \n Android版 ${android} \n 応用 ${ouyou}`;
+            mes = `iPhone版 ${ios} \n\n Android版 ${android} \n\n 応用 ${ouyou}`;
         }else if(WEO.message.text === 'アンケート'){
             console.log(`アンケートコマンド`);
             mes = `今日のアンケート https://goo.gl/forms/2VL3Z1UwZzEYvPl62`;
