@@ -43,7 +43,9 @@ const action = async (WEO) => {
         }else if(WEO.message.text === 'ヘルプ'){
             console.log(`ヘルプコマンド`);
             mes = `iPhone版 https://speakerdeck.com/n0bisuke/wionodefalsesetutoatupu-iphoneban
-            Android版 https://speakerdeck.com/n0bisuke/wionodefalsesetutoatupu-androidban`;
+            Android版 https://speakerdeck.com/n0bisuke/wionodefalsesetutoatupu-androidban
+            応用 https://i.gyazo.com/a83ceedfd879c337e84314d27fb091a3.png
+            `;
         }else if(WEO.message.text === 'アンケート'){
             console.log(`アンケートコマンド`);
             mes = `今日のアンケート https://goo.gl/forms/2VL3Z1UwZzEYvPl62`;
