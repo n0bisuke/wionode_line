@@ -42,9 +42,10 @@ const action = async (WEO) => {
 
         }else if(WEO.message.text === 'ヘルプ'){
             console.log(`ヘルプコマンド`);
-            mes = `iPhone版 https://speakerdeck.com/n0bisuke/wionodefalsesetutoatupu-iphoneban`
-            += `Android版 https://speakerdeck.com/n0bisuke/wionodefalsesetutoatupu-androidban`
-            += `応用 https://i.gyazo.com/a83ceedfd879c337e84314d27fb091a3.png`;
+            const ios = 'https://speakerdeck.com/n0bisuke/wionodefalsesetutoatupu-iphoneban'; 
+            const android = 'https://speakerdeck.com/n0bisuke/wionodefalsesetutoatupu-androidban';
+            const ouyou = 'https://i.gyazo.com/a83ceedfd879c337e84314d27fb091a3.png';
+            mes = `iPhone版 ${ios} / Android版 ${android} / 応用 ${ouyou}`;
         }else if(WEO.message.text === 'アンケート'){
             console.log(`アンケートコマンド`);
             mes = `今日のアンケート https://goo.gl/forms/2VL3Z1UwZzEYvPl62`;
